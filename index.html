@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+
+    <!-- Marca a página como "com JavaScript" antes de renderizar, para evitar flash nas animações -->
+    <script>document.documentElement.classList.add("js");</script>
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>Jornada de Sucesso Broady</title>
+</head>
+<body>
+
+<main>
+
+    <header class="cabecalho">
+
+        <div class="cabecalho-conteudo">
+            <span class="etiqueta">BROADY • CUSTOMER SUCCESS</span>
+
+            <h1>Jornada de Sucesso</h1>
+        </div>
+
+        <button type="button" id="alternar-tema" class="botao-tema" aria-pressed="false" aria-label="Alternar para modo claro">
+            <svg class="icone-tema icone-lua" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            <svg class="icone-tema icone-sol" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.6"/><path d="M12 2.5v2.4M12 19.1v2.4M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </button>
+
+    </header>
+
+    <!-- Os números abaixo são calculados sozinhos a partir da lista de clientes -->
+
+    <section class="resumo">
+
+        <h2 class="so-leitor">Visão Geral</h2>
+
+        <div class="cartoes-indicadores">
+
+            <div class="cartao" data-tom="cinza" data-indicador="total">
+                <span>Total de clientes</span>
+                <strong>0</strong>
+            </div>
+
+            <div class="cartao" data-tom="azul" data-indicador="onboarding">
+                <span>Em ativação e teste</span>
+                <strong>0</strong>
+            </div>
+
+            <div class="cartao" data-tom="verde" data-indicador="operacao">
+                <span>Em operação</span>
+                <strong>0</strong>
+            </div>
+
+            <div class="cartao" data-tom="laranja" data-indicador="atencao">
+                <span>Precisam de atenção</span>
+                <strong>0</strong>
+            </div>
+
+            <div class="cartao" data-tom="turquesa" data-indicador="acompanhamento">
+                <span>Em evolução</span>
+                <strong>0</strong>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Clientes por etapa da jornada (cada etapa também filtra a lista de
+         clientes ao ser clicada) -->
+
+    <section class="etapas">
+
+        <h2>Clientes por etapa da jornada</h2>
+
+        <div class="lista-etapas">
+
+            <div class="etapa" data-tom="cinza" data-etapa="descoberta">
+                <div class="cabecalho-etapa">
+                    <span>Contato inicial</span>
+                    <strong>0 clientes</strong>
+                </div>
+                <div class="barra"><div class="progresso" style="--valor: 0%;"></div></div>
+            </div>
+
+            <div class="etapa" data-tom="azul" data-etapa="onboarding">
+                <div class="cabecalho-etapa">
+                    <span>Ativação e período de teste</span>
+                    <strong>0 clientes</strong>
+                </div>
+                <div class="barra"><div class="progresso" style="--valor: 0%;"></div></div>
+            </div>
+
+            <div class="etapa" data-tom="verde" data-etapa="operacao">
+                <div class="cabecalho-etapa">
+                    <span>Continuidade e operação</span>
+                    <strong>0 clientes</strong>
+                </div>
+                <div class="barra"><div class="progresso" style="--valor: 0%;"></div></div>
+            </div>
+
+            <div class="etapa" data-tom="turquesa" data-etapa="acompanhamento">
+                <div class="cabecalho-etapa">
+                    <span>Evolução e escalabilidade</span>
+                    <strong>0 clientes</strong>
+                </div>
+                <div class="barra"><div class="progresso" style="--valor: 0%;"></div></div>
+            </div>
+
+            <div class="etapa" data-tom="indigo" data-etapa="sucesso">
+                <div class="cabecalho-etapa">
+                    <span>Sucesso e evolução da operação</span>
+                    <strong>0 clientes</strong>
+                </div>
+                <div class="barra"><div class="progresso" style="--valor: 0%;"></div></div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Lista de clientes (esquerda) e detalhes do cliente selecionado
+         (direita), lado a lado em telas largas -->
+
+    <div class="painel-principal">
+
+    <section class="coluna-lista">
+
+        <h2 class="so-leitor">Lista geral de clientes</h2>
+
+        <div class="area-pesquisa">
+            <input
+                type="search"
+                id="pesquisa-cliente"
+                placeholder="Pesquisar cliente..."
+                aria-label="Pesquisar cliente"
+            >
+            <button type="button" class="botao-limpar-filtros" id="limpar-filtros" hidden>Limpar filtros</button>
+        </div>
+
+        <div class="lista-clientes" id="lista-clientes" aria-label="Lista de clientes"></div>
+
+    </section>
+
+    <section class="detalhes-cliente">
+        <h2 class="so-leitor">Detalhes do cliente</h2>
+
+        <div class="cartao-detalhes" id="cartao-detalhes" data-tom="cinza">
+            <div class="cabecalho-detalhes">
+                <h3 id="detalhe-nome">Selecione um cliente</h3>
+            </div>
+
+            <!-- Resumo do cliente: 1ª linha = etapa, status e próxima ação;
+                 2ª linha = só o avanço da jornada (calculado em script.js). -->
+            <div class="resumo-cliente">
+
+                <div class="informacoes-detalhes">
+
+                    <div class="campo-detalhe">
+                        <span>Etapa da jornada</span>
+                        <strong id="detalhe-etapa">-</strong>
+                    </div>
+
+                    <div class="campo-detalhe">
+                        <span>Status atual</span>
+                        <span class="status sem-valor" id="detalhe-status" data-tom="cinza">-</span>
+                    </div>
+
+                    <div class="campo-detalhe">
+                        <span>Próxima ação</span>
+                        <span class="status sem-valor" id="detalhe-acao" data-tom="cinza">-</span>
+                    </div>
+
+                </div>
+
+                <div class="avanco-jornada" id="avanco-jornada" hidden>
+                    <div class="cabecalho-avanco">
+                        <span>Avanço da jornada</span>
+                        <strong id="avanco-valor">0%</strong>
+                    </div>
+                    <div class="barra"><div class="progresso" id="avanco-barra" style="--valor: 0%;"></div></div>
+                </div>
+
+            </div>
+
+            <!-- Avisos informativos sobre o cliente selecionado — não alteram
+                 dados nem bloqueiam o uso do dashboard. São visualmente
+                 diferentes entre si:
+                 impeditiva = tarefa de negócio pendente; inconsistência =
+                 verificação técnica entre etapasConcluidas e o checkpoint
+                 de avanço. -->
+
+            <div class="aviso-painel" id="aviso-impeditiva" data-tipo="impeditiva" hidden title="Tarefa de negócio pendente que pode estar travando o avanço do cliente">
+                <span class="aviso-painel-icone" aria-hidden="true">!</span>
+                <p id="texto-aviso-impeditiva"></p>
+            </div>
+
+            <div class="aviso-painel" id="aviso-inconsistencia" data-tipo="inconsistencia" hidden title="Verificação técnica: a etapa foi marcada como concluída, mas o checkpoint que confirma isso ainda não está">
+                <span class="aviso-painel-icone" aria-hidden="true">i</span>
+                <p id="texto-aviso-inconsistencia"></p>
+            </div>
+
+            <!-- Notas gerais do cliente (campo notasGerais em dados.js) — texto
+                 livre sobre o relacionamento como um todo, diferente das
+                 observações de cada tarefa. Só aparece quando o cliente tem
+                 pelo menos uma nota registrada. -->
+
+            <div class="notas-gerais" id="notas-gerais" hidden>
+                <h4>Notas gerais</h4>
+                <ul id="lista-notas-gerais"></ul>
+            </div>
+
+            <!-- Checkpoints por etapa (calculados a partir de dados.js) -->
+
+            <div class="checkpoints" id="checkpoints" hidden>
+                <div class="cabecalho-checkpoints">
+                    <h4>Checkpoints por etapa</h4>
+                    <div class="controles-acordeao">
+                        <button type="button" id="expandir-todas" class="botao-acordeao">Expandir todas</button>
+                        <button type="button" id="recolher-todas" class="botao-acordeao">Recolher todas</button>
+                    </div>
+                </div>
+                <div id="lista-checkpoints"></div>
+            </div>
+        </div>
+    </section>
+
+    </div>
+
+</main>
+
+<script src="dados.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
