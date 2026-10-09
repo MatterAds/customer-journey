@@ -659,6 +659,17 @@ const CLIENTES = [
         "motivo": "",
         "etapasConcluidas": [],
         "tarefas": {}
+    },
+    {
+        "nome": "KHS Mídia",
+        "etapa": "descoberta",
+        "status": "Não iniciado",
+        "proximaAcao": "",
+        "responsavel": "",
+        "atencao": false,
+        "motivo": "",
+        "etapasConcluidas": [],
+        "tarefas": {}
     }
 ];
 
