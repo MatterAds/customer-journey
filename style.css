@@ -1743,3 +1743,33 @@ h1 {
 .resumo-cliente .cabecalho-avanco {
     margin-bottom: 8px;
 }
+
+/* ----------------------------------------------------------
+   Barra de rolagem da lista de clientes: fina e discreta
+   (Chrome/Safari usam o ::-webkit-scrollbar; o Firefox usa as
+   propriedades padrão, aplicadas só quando o outro não existe)
+   ---------------------------------------------------------- */
+
+.lista-clientes::-webkit-scrollbar {
+    width: 6px;
+}
+
+.lista-clientes::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.lista-clientes::-webkit-scrollbar-thumb {
+    background-color: color-mix(in srgb, var(--texto-suave) 32%, transparent);
+    border-radius: 999px;
+}
+
+.lista-clientes::-webkit-scrollbar-thumb:hover {
+    background-color: color-mix(in srgb, var(--texto-suave) 60%, transparent);
+}
+
+@supports not selector(::-webkit-scrollbar) {
+    .lista-clientes {
+        scrollbar-width: thin;
+        scrollbar-color: color-mix(in srgb, var(--texto-suave) 32%, transparent) transparent;
+    }
+}
