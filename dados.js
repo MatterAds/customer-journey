@@ -27,7 +27,10 @@
    mas não são mais exibidas na tela. Em seguida, os 7 clientes de exemplo
    foram substituídos pelos 10 clientes ativos reais, cadastrados só com o
    nome (etapa "Contato inicial", status "Não iniciado" e sem próxima ação),
-   até a Camila passar a situação real de cada um.
+   até a Camila passar a situação real de cada um. Depois, a Camila
+   informou até qual etapa cada cliente está concluído: as etapas
+   anteriores (e suas tarefas) ficaram "Concluído" e o status passou
+   a "Em andamento". Entraram Zorion Midias e 3A Midia e saiu KHS Mídia.
 
    O arquivo tem duas partes:
      1. TAREFAS    — as tarefas oficiais de cada etapa, com as
@@ -551,125 +554,665 @@ const TAREFAS = [
 
 const CLIENTES = [
     {
-        "nome": "Cenário Capital",
-        "etapa": "descoberta",
-        "status": "Não iniciado",
+        "nome": "Zorion Midias",
+        "etapa": "operacao",
+        "status": "Em andamento",
         "proximaAcao": "",
         "responsavel": "",
         "atencao": false,
         "motivo": "",
-        "etapasConcluidas": [],
-        "tarefas": {}
+        "etapasConcluidas": [
+            "descoberta",
+            "onboarding"
+        ],
+        "tarefas": {
+            "1.1": {
+                "status": "Concluído"
+            },
+            "1.2": {
+                "status": "Concluído"
+            },
+            "1.3": {
+                "status": "Concluído"
+            },
+            "1.4": {
+                "status": "Concluído"
+            },
+            "2.1": {
+                "status": "Concluído"
+            },
+            "2.2": {
+                "status": "Concluído"
+            },
+            "2.3": {
+                "status": "Concluído"
+            },
+            "2.4": {
+                "status": "Concluído"
+            },
+            "2.5": {
+                "status": "Concluído"
+            },
+            "2.6": {
+                "status": "Concluído"
+            }
+        }
+    },
+    {
+        "nome": "3A Midia",
+        "etapa": "operacao",
+        "status": "Em andamento",
+        "proximaAcao": "",
+        "responsavel": "",
+        "atencao": false,
+        "motivo": "",
+        "etapasConcluidas": [
+            "descoberta",
+            "onboarding"
+        ],
+        "tarefas": {
+            "1.1": {
+                "status": "Concluído"
+            },
+            "1.2": {
+                "status": "Concluído"
+            },
+            "1.3": {
+                "status": "Concluído"
+            },
+            "1.4": {
+                "status": "Concluído"
+            },
+            "2.1": {
+                "status": "Concluído"
+            },
+            "2.2": {
+                "status": "Concluído"
+            },
+            "2.3": {
+                "status": "Concluído"
+            },
+            "2.4": {
+                "status": "Concluído"
+            },
+            "2.5": {
+                "status": "Concluído"
+            },
+            "2.6": {
+                "status": "Concluído"
+            }
+        }
+    },
+    {
+        "nome": "Cenário Capital",
+        "etapa": "operacao",
+        "status": "Em andamento",
+        "proximaAcao": "",
+        "responsavel": "",
+        "atencao": false,
+        "motivo": "",
+        "etapasConcluidas": [
+            "descoberta",
+            "onboarding"
+        ],
+        "tarefas": {
+            "1.1": {
+                "status": "Concluído"
+            },
+            "1.2": {
+                "status": "Concluído"
+            },
+            "1.3": {
+                "status": "Concluído"
+            },
+            "1.4": {
+                "status": "Concluído"
+            },
+            "2.1": {
+                "status": "Concluído"
+            },
+            "2.2": {
+                "status": "Concluído"
+            },
+            "2.3": {
+                "status": "Concluído"
+            },
+            "2.4": {
+                "status": "Concluído"
+            },
+            "2.5": {
+                "status": "Concluído"
+            },
+            "2.6": {
+                "status": "Concluído"
+            }
+        }
     },
     {
         "nome": "J Lord Performance",
-        "etapa": "descoberta",
-        "status": "Não iniciado",
+        "etapa": "acompanhamento",
+        "status": "Em andamento",
         "proximaAcao": "",
         "responsavel": "",
         "atencao": false,
         "motivo": "",
-        "etapasConcluidas": [],
-        "tarefas": {}
+        "etapasConcluidas": [
+            "descoberta",
+            "onboarding",
+            "operacao"
+        ],
+        "tarefas": {
+            "1.1": {
+                "status": "Concluído"
+            },
+            "1.2": {
+                "status": "Concluído"
+            },
+            "1.3": {
+                "status": "Concluído"
+            },
+            "1.4": {
+                "status": "Concluído"
+            },
+            "2.1": {
+                "status": "Concluído"
+            },
+            "2.2": {
+                "status": "Concluído"
+            },
+            "2.3": {
+                "status": "Concluído"
+            },
+            "2.4": {
+                "status": "Concluído"
+            },
+            "2.5": {
+                "status": "Concluído"
+            },
+            "2.6": {
+                "status": "Concluído"
+            },
+            "3.1": {
+                "status": "Concluído"
+            },
+            "3.2": {
+                "status": "Concluído"
+            }
+        }
     },
     {
         "nome": "Zimmerman",
-        "etapa": "descoberta",
-        "status": "Não iniciado",
+        "etapa": "operacao",
+        "status": "Em andamento",
         "proximaAcao": "",
         "responsavel": "",
         "atencao": false,
         "motivo": "",
-        "etapasConcluidas": [],
-        "tarefas": {}
+        "etapasConcluidas": [
+            "descoberta",
+            "onboarding"
+        ],
+        "tarefas": {
+            "1.1": {
+                "status": "Concluído"
+            },
+            "1.2": {
+                "status": "Concluído"
+            },
+            "1.3": {
+                "status": "Concluído"
+            },
+            "1.4": {
+                "status": "Concluído"
+            },
+            "2.1": {
+                "status": "Concluído"
+            },
+            "2.2": {
+                "status": "Concluído"
+            },
+            "2.3": {
+                "status": "Concluído"
+            },
+            "2.4": {
+                "status": "Concluído"
+            },
+            "2.5": {
+                "status": "Concluído"
+            },
+            "2.6": {
+                "status": "Concluído"
+            }
+        }
     },
     {
         "nome": "PubViews",
-        "etapa": "descoberta",
-        "status": "Não iniciado",
+        "etapa": "acompanhamento",
+        "status": "Em andamento",
         "proximaAcao": "",
         "responsavel": "",
         "atencao": false,
         "motivo": "",
-        "etapasConcluidas": [],
-        "tarefas": {}
+        "etapasConcluidas": [
+            "descoberta",
+            "onboarding",
+            "operacao"
+        ],
+        "tarefas": {
+            "1.1": {
+                "status": "Concluído"
+            },
+            "1.2": {
+                "status": "Concluído"
+            },
+            "1.3": {
+                "status": "Concluído"
+            },
+            "1.4": {
+                "status": "Concluído"
+            },
+            "2.1": {
+                "status": "Concluído"
+            },
+            "2.2": {
+                "status": "Concluído"
+            },
+            "2.3": {
+                "status": "Concluído"
+            },
+            "2.4": {
+                "status": "Concluído"
+            },
+            "2.5": {
+                "status": "Concluído"
+            },
+            "2.6": {
+                "status": "Concluído"
+            },
+            "3.1": {
+                "status": "Concluído"
+            },
+            "3.2": {
+                "status": "Concluído"
+            }
+        }
     },
     {
         "nome": "Minuto VIP",
-        "etapa": "descoberta",
-        "status": "Não iniciado",
+        "etapa": "acompanhamento",
+        "status": "Em andamento",
         "proximaAcao": "",
         "responsavel": "",
         "atencao": false,
         "motivo": "",
-        "etapasConcluidas": [],
-        "tarefas": {}
+        "etapasConcluidas": [
+            "descoberta",
+            "onboarding",
+            "operacao"
+        ],
+        "tarefas": {
+            "1.1": {
+                "status": "Concluído"
+            },
+            "1.2": {
+                "status": "Concluído"
+            },
+            "1.3": {
+                "status": "Concluído"
+            },
+            "1.4": {
+                "status": "Concluído"
+            },
+            "2.1": {
+                "status": "Concluído"
+            },
+            "2.2": {
+                "status": "Concluído"
+            },
+            "2.3": {
+                "status": "Concluído"
+            },
+            "2.4": {
+                "status": "Concluído"
+            },
+            "2.5": {
+                "status": "Concluído"
+            },
+            "2.6": {
+                "status": "Concluído"
+            },
+            "3.1": {
+                "status": "Concluído"
+            },
+            "3.2": {
+                "status": "Concluído"
+            }
+        }
     },
     {
         "nome": "Mira Media",
-        "etapa": "descoberta",
-        "status": "Não iniciado",
+        "etapa": "sucesso",
+        "status": "Em andamento",
         "proximaAcao": "",
         "responsavel": "",
         "atencao": false,
         "motivo": "",
-        "etapasConcluidas": [],
-        "tarefas": {}
+        "etapasConcluidas": [
+            "descoberta",
+            "onboarding",
+            "operacao",
+            "acompanhamento"
+        ],
+        "tarefas": {
+            "1.1": {
+                "status": "Concluído"
+            },
+            "1.2": {
+                "status": "Concluído"
+            },
+            "1.3": {
+                "status": "Concluído"
+            },
+            "1.4": {
+                "status": "Concluído"
+            },
+            "2.1": {
+                "status": "Concluído"
+            },
+            "2.2": {
+                "status": "Concluído"
+            },
+            "2.3": {
+                "status": "Concluído"
+            },
+            "2.4": {
+                "status": "Concluído"
+            },
+            "2.5": {
+                "status": "Concluído"
+            },
+            "2.6": {
+                "status": "Concluído"
+            },
+            "3.1": {
+                "status": "Concluído"
+            },
+            "3.2": {
+                "status": "Concluído"
+            },
+            "4.1": {
+                "status": "Concluído"
+            },
+            "4.2": {
+                "status": "Concluído"
+            },
+            "4.3": {
+                "status": "Concluído"
+            },
+            "4.4": {
+                "status": "Concluído"
+            }
+        }
     },
     {
         "nome": "Omes",
-        "etapa": "descoberta",
-        "status": "Não iniciado",
+        "etapa": "sucesso",
+        "status": "Em andamento",
         "proximaAcao": "",
         "responsavel": "",
         "atencao": false,
         "motivo": "",
-        "etapasConcluidas": [],
-        "tarefas": {}
+        "etapasConcluidas": [
+            "descoberta",
+            "onboarding",
+            "operacao",
+            "acompanhamento"
+        ],
+        "tarefas": {
+            "1.1": {
+                "status": "Concluído"
+            },
+            "1.2": {
+                "status": "Concluído"
+            },
+            "1.3": {
+                "status": "Concluído"
+            },
+            "1.4": {
+                "status": "Concluído"
+            },
+            "2.1": {
+                "status": "Concluído"
+            },
+            "2.2": {
+                "status": "Concluído"
+            },
+            "2.3": {
+                "status": "Concluído"
+            },
+            "2.4": {
+                "status": "Concluído"
+            },
+            "2.5": {
+                "status": "Concluído"
+            },
+            "2.6": {
+                "status": "Concluído"
+            },
+            "3.1": {
+                "status": "Concluído"
+            },
+            "3.2": {
+                "status": "Concluído"
+            },
+            "4.1": {
+                "status": "Concluído"
+            },
+            "4.2": {
+                "status": "Concluído"
+            },
+            "4.3": {
+                "status": "Concluído"
+            },
+            "4.4": {
+                "status": "Concluído"
+            }
+        }
     },
     {
         "nome": "Huigor",
-        "etapa": "descoberta",
-        "status": "Não iniciado",
+        "etapa": "sucesso",
+        "status": "Em andamento",
         "proximaAcao": "",
         "responsavel": "",
         "atencao": false,
         "motivo": "",
-        "etapasConcluidas": [],
-        "tarefas": {}
+        "etapasConcluidas": [
+            "descoberta",
+            "onboarding",
+            "operacao",
+            "acompanhamento"
+        ],
+        "tarefas": {
+            "1.1": {
+                "status": "Concluído"
+            },
+            "1.2": {
+                "status": "Concluído"
+            },
+            "1.3": {
+                "status": "Concluído"
+            },
+            "1.4": {
+                "status": "Concluído"
+            },
+            "2.1": {
+                "status": "Concluído"
+            },
+            "2.2": {
+                "status": "Concluído"
+            },
+            "2.3": {
+                "status": "Concluído"
+            },
+            "2.4": {
+                "status": "Concluído"
+            },
+            "2.5": {
+                "status": "Concluído"
+            },
+            "2.6": {
+                "status": "Concluído"
+            },
+            "3.1": {
+                "status": "Concluído"
+            },
+            "3.2": {
+                "status": "Concluído"
+            },
+            "4.1": {
+                "status": "Concluído"
+            },
+            "4.2": {
+                "status": "Concluído"
+            },
+            "4.3": {
+                "status": "Concluído"
+            },
+            "4.4": {
+                "status": "Concluído"
+            }
+        }
     },
     {
         "nome": "Rocket",
-        "etapa": "descoberta",
-        "status": "Não iniciado",
+        "etapa": "sucesso",
+        "status": "Em andamento",
         "proximaAcao": "",
         "responsavel": "",
         "atencao": false,
         "motivo": "",
-        "etapasConcluidas": [],
-        "tarefas": {}
+        "etapasConcluidas": [
+            "descoberta",
+            "onboarding",
+            "operacao",
+            "acompanhamento"
+        ],
+        "tarefas": {
+            "1.1": {
+                "status": "Concluído"
+            },
+            "1.2": {
+                "status": "Concluído"
+            },
+            "1.3": {
+                "status": "Concluído"
+            },
+            "1.4": {
+                "status": "Concluído"
+            },
+            "2.1": {
+                "status": "Concluído"
+            },
+            "2.2": {
+                "status": "Concluído"
+            },
+            "2.3": {
+                "status": "Concluído"
+            },
+            "2.4": {
+                "status": "Concluído"
+            },
+            "2.5": {
+                "status": "Concluído"
+            },
+            "2.6": {
+                "status": "Concluído"
+            },
+            "3.1": {
+                "status": "Concluído"
+            },
+            "3.2": {
+                "status": "Concluído"
+            },
+            "4.1": {
+                "status": "Concluído"
+            },
+            "4.2": {
+                "status": "Concluído"
+            },
+            "4.3": {
+                "status": "Concluído"
+            },
+            "4.4": {
+                "status": "Concluído"
+            }
+        }
     },
     {
         "nome": "Matter",
-        "etapa": "descoberta",
-        "status": "Não iniciado",
+        "etapa": "sucesso",
+        "status": "Em andamento",
         "proximaAcao": "",
         "responsavel": "",
         "atencao": false,
         "motivo": "",
-        "etapasConcluidas": [],
-        "tarefas": {}
-    },
-    {
-        "nome": "KHS Mídia",
-        "etapa": "descoberta",
-        "status": "Não iniciado",
-        "proximaAcao": "",
-        "responsavel": "",
-        "atencao": false,
-        "motivo": "",
-        "etapasConcluidas": [],
-        "tarefas": {}
+        "etapasConcluidas": [
+            "descoberta",
+            "onboarding",
+            "operacao",
+            "acompanhamento"
+        ],
+        "tarefas": {
+            "1.1": {
+                "status": "Concluído"
+            },
+            "1.2": {
+                "status": "Concluído"
+            },
+            "1.3": {
+                "status": "Concluído"
+            },
+            "1.4": {
+                "status": "Concluído"
+            },
+            "2.1": {
+                "status": "Concluído"
+            },
+            "2.2": {
+                "status": "Concluído"
+            },
+            "2.3": {
+                "status": "Concluído"
+            },
+            "2.4": {
+                "status": "Concluído"
+            },
+            "2.5": {
+                "status": "Concluído"
+            },
+            "2.6": {
+                "status": "Concluído"
+            },
+            "3.1": {
+                "status": "Concluído"
+            },
+            "3.2": {
+                "status": "Concluído"
+            },
+            "4.1": {
+                "status": "Concluído"
+            },
+            "4.2": {
+                "status": "Concluído"
+            },
+            "4.3": {
+                "status": "Concluído"
+            },
+            "4.4": {
+                "status": "Concluído"
+            }
+        }
     }
 ];
 
