@@ -1,0 +1,25 @@
+name: Claude Review
+
+# Caller mínimo. A lógica mora em MatterAds/.github.
+# Não remova id-token: write — o workflow chamado não consegue elevar
+# essa permissão, e sem ela a GitHub App Claude não autentica.
+# Não passe github_token e não use ANTHROPIC_API_KEY.
+
+on:
+  pull_request:
+    types: [opened, synchronize, ready_for_review]
+
+jobs:
+  claude-review:
+    name: Claude Review
+    if: >-
+      github.event.pull_request.draft == false &&
+      github.event.pull_request.user.type != 'Bot' &&
+      github.event.pull_request.head.repo.full_name == github.repository
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: write
+      id-token: write
+    uses: MatterAds/.github/.github/workflows/claude-review.yml@main
+    secrets: inherit
