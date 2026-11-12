@@ -1,0 +1,81 @@
+name: Claude Review
+
+# Caller mínimo. A lógica mora em MatterAds/.github.
+# Não remova id-token: write — o workflow chamado não consegue elevar
+# essa permissão, e sem ela a GitHub App Claude não autentica.
+# Não passe github_token e não use ANTHROPIC_API_KEY.
+# O job de menção não aprova e não faz merge.
+
+on:
+  pull_request:
+    types: [opened, synchronize, ready_for_review]
+  issue_comment:
+    types: [created]
+  pull_request_review_comment:
+    types: [created]
+  pull_request_review:
+    types: [submitted]
+
+jobs:
+  claude-review:
+    name: Claude Review
+    if: >-
+      github.event_name == 'pull_request' &&
+      github.event.pull_request.draft == false &&
+      github.event.pull_request.user.type != 'Bot' &&
+      github.event.pull_request.head.repo.full_name == github.repository
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: write
+      id-token: write
+    uses: MatterAds/.github/.github/workflows/claude-review.yml@main
+    secrets: inherit
+
+  claude-mention:
+    name: Claude Mention
+    # Mantenha este if igual ao de claude-mention.yml. A action deixa
+    # passar login terminado em [bot]; o filtro tem de ficar no caller.
+    if: >-
+      (
+        github.event_name == 'issue_comment' &&
+        github.event.action == 'created' &&
+        github.event.issue.pull_request != null &&
+        contains(github.event.comment.body || '', '@claude') &&
+        github.event.comment.user.type != 'Bot' &&
+        !endsWith(github.event.comment.user.login, '[bot]') &&
+        (
+          github.event.comment.author_association == 'OWNER' ||
+          github.event.comment.author_association == 'MEMBER' ||
+          github.event.comment.author_association == 'COLLABORATOR'
+        )
+      ) || (
+        github.event_name == 'pull_request_review_comment' &&
+        github.event.action == 'created' &&
+        contains(github.event.comment.body || '', '@claude') &&
+        github.event.comment.user.type != 'Bot' &&
+        !endsWith(github.event.comment.user.login, '[bot]') &&
+        (
+          github.event.comment.author_association == 'OWNER' ||
+          github.event.comment.author_association == 'MEMBER' ||
+          github.event.comment.author_association == 'COLLABORATOR'
+        )
+      ) || (
+        github.event_name == 'pull_request_review' &&
+        github.event.action == 'submitted' &&
+        contains(github.event.review.body || '', '@claude') &&
+        github.event.review.user.type != 'Bot' &&
+        !endsWith(github.event.review.user.login, '[bot]') &&
+        (
+          github.event.review.author_association == 'OWNER' ||
+          github.event.review.author_association == 'MEMBER' ||
+          github.event.review.author_association == 'COLLABORATOR'
+        )
+      )
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+      id-token: write
+    uses: MatterAds/.github/.github/workflows/claude-mention.yml@main
+    secrets: inherit
